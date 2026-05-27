@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // Compile down to modern JavaScript
+    "module": "commonjs", // Use the standard Node.js module system
+    "rootDir": "./src", // Where your raw TypeScript source code lives
+    "outDir": "./dist", // Where the final compiled JavaScript will go
+    "esModuleInterop": true, // Allows seamless imports of CommonJS modules
+    "forceConsistentCasingInFileNames":true, // Ensures imports match exact file letter-casing
+    "strict": true, // Enables strict type-checking flags for safe code
+    "skipLibCheck": true // Skips type checking of external node_modules to save speed
+  }
+}

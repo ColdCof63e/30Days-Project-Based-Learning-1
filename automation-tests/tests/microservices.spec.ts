@@ -3,7 +3,7 @@ import { test, expect} from '@playwright/test'
 test.describe("Full Stack micro-services health check", () => {
     test('Should confirm Node/Express MERN gateway is live', async ({request}) => {
         // Sending a direct HTTP GET request to your node server port
-        const response = await request.get('http://127.0.0.1:5005/ping')
+        const response = await request.get('http://127.0.0.1:5000/ping')
 
         // Assert that the server handles network traffic with a 200 ok success code
         expect(response.ok()).toBeTruthy()

@@ -1,5 +1,4 @@
 import {Schema, model, Document } from 'mongoose'
-import { title } from 'node:process'
 
 // Defining strict TypeScript interface for document properties
 export interface INode extends Document {

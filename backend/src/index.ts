@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT || 5005
+const PORT = process.env.PORT || 5000
 const MONGODB_URI = process.env.MONGO_DB_URI || 'mongodb://localhost:27017/knowledge_graph_db'
 
 // Middleware to parse incoming JSON payloads
@@ -17,24 +17,27 @@ app.get('/ping', (req: Request, res:Response) => {
     res.json({message: "Express backend is Live and Listening!"})
 })
 
-// Establish connection to MongoDB
-
+// Establishing connection to MongoDB
+// ---------------------------------- Method 1 -----------------------------------
 // Promise chaining 
-// mongoose
-// .connect(MONGODB_URI)
-// .then(() => {
-//     console.log('Successfully connected to MongoDB')
+/* 
+mongoose
+.connect(MONGODB_URI)
+.then(() => {
+    console.log('Successfully connected to MongoDB')
 
-//     // Start listening for network traffic only After the database connects successfully
-//     app.listen(PORT, () => {
-//         console.log(`Server is running on port http://localhost:${PORT}`)
-//     })
-// })
-// .catch((error) => {
-//     console.error('Mongo DB Connection error: ', error)
-//     process.exit(1) // Crash the process safely if we can't hit our data layer
-// })
+    // Start listening for network traffic only After the database connects successfully
+    app.listen(PORT, () => {
+        console.log(`Server is running on port http://localhost:${PORT}`)
+    })
+})
+.catch((error) => {
+    console.error('Mongo DB Connection error: ', error)
+    process.exit(1) // Crash the process safely if we can't hit our data layer
+}) 
+*/
 
+// ---------------------------------- Method 2 -----------------------------------
 // Async function
 async function startServer() {
     try {
